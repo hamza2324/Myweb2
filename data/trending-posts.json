@@ -1,6 +1,6 @@
-﻿[
+[
   {
-    "id": "trending-006",
+    "id": "trending-005",
     "title": "Trending Radar Weekly",
     "slug": "trending-radar-weekly",
     "category": "trending",
@@ -11,14 +11,14 @@
       "trending",
       "trending news"
     ],
-    "date": "2026-02-26",
-    "modified": "2026-02-26",
+    "date": "2026-02-28",
+    "modified": "2026-02-28",
     "author": "HJTrending Editorial Team",
     "thumbnail": "https://images.unsplash.com/photo-1495020689067-958852a7765e?w=1200&q=85&auto=format",
     "thumbnailAlt": "Breaking trend coverage on HJTrending",
-    "excerpt": "This week the fastestgrowing trend clusters include World Cup travel planning, creatordriven tactical explainers, and gamin",
+    "excerpt": "This week the fastestgrowing trend clusters include World Cup travel planning, creatordriven tactical explainers, and gaming AI crowd showcases. The strong",
     "readTime": "1 min",
-    "wordCount": 42,
+    "wordCount": 38,
     "featured": false,
     "trending": false,
     "breaking": false,
