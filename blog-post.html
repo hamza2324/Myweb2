@@ -1,0 +1,862 @@
+﻿<!doctype html>
+<html lang='en'>
+
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width,initial-scale=1'>
+    <title>Article | HJ Trending</title>
+    <meta name='description' content='Read in-depth coverage on HJ Trending.'>
+    <meta property='og:title' content='Article | HJ Trending'>
+    <meta property='og:description' content='Read in-depth coverage on HJ Trending.'>
+    <meta property='og:type' content='article'>
+    <meta property='og:image' content='https://hjtrending.site/assets/images/og/homepage-og.jpg'>
+    <meta property='og:url' content='https://hjtrending.site/blog-post.html'>
+    <meta name='twitter:card' content='summary_large_image'>
+    <meta name='twitter:title' content='Article | HJ Trending'>
+    <meta name='twitter:description' content='Read in-depth coverage on HJ Trending.'>
+    <meta name='twitter:image' content='https://hjtrending.site/assets/images/og/homepage-og.jpg'>
+    <link rel='canonical' href='https://hjtrending.site/blog-post.html'>
+    <meta name='robots' content='index, follow'>
+    <link rel='preconnect' href='https://fonts.googleapis.com'>
+    <link rel='preconnect' href='https://fonts.gstatic.com' crossorigin>
+    <link
+        href='https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&family=Space+Mono:wght@400;700&display=swap'
+        rel='stylesheet'>
+    <style>
+        :root {
+            --red: #E8002D;
+            --black: #0a0a0a;
+            --white: #fff;
+            --grey-100: #f8f8f8;
+            --grey-200: #ebebeb;
+            --grey-300: #d0d0d0;
+            --grey-500: #888;
+            --grey-700: #444;
+            --grey-900: #1a1a1a;
+            --yellow: #FFE600;
+            --green: #00C853;
+            --blue: #0066FF
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            -webkit-tap-highlight-color: transparent
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            overflow-x: hidden
+        }
+
+        .c {
+            max-width: 1280px;
+            margin: auto;
+            padding: 0 20px
+        }
+
+        .narrow {
+            max-width: 760px;
+            margin: auto;
+            padding: 0 20px
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover
+        }
+
+        .progress {
+            position: fixed;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--red);
+            width: 0;
+            z-index: 300;
+            transition: width .1s linear
+        }
+
+        .ticker {
+            height: 36px;
+            background: #000;
+            color: #d0d0d0;
+            display: flex;
+            align-items: center;
+            overflow: hidden
+        }
+
+        .live {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            padding: 0 12px;
+            background: var(--red);
+            color: #fff;
+            font: 700 10px 'Space Mono';
+            letter-spacing: .12em
+        }
+
+        .live::after {
+            content: '';
+            width: 6px;
+            height: 6px;
+            background: var(--yellow);
+            margin-left: 6px;
+            animation: p 1s infinite
+        }
+
+        .track {
+            white-space: nowrap;
+            animation: s 40s linear infinite
+        }
+
+        .track span {
+            padding: 0 12px;
+            font-size: 12px
+        }
+
+        .track b {
+            color: var(--red)
+        }
+
+        @keyframes s {
+            to {
+                transform: translateX(-50%)
+            }
+        }
+
+        @keyframes p {
+            50% {
+                opacity: 0
+            }
+        }
+
+        .navw {
+            position: sticky;
+            top: 0;
+            background: #fff;
+            border-bottom: 2px solid #000;
+            z-index: 99
+        }
+
+        .nav {
+            height: 56px;
+            display: flex;
+            align-items: center
+        }
+
+        .logo {
+            font: 28px 'Bebas Neue'
+        }
+
+        .logo i {
+            font-style: normal;
+            color: var(--red)
+        }
+
+        .links {
+            display: flex;
+            margin-left: 16px
+        }
+
+        .links a {
+            font: 700 11px 'Space Mono';
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            padding: 10px;
+            color: var(--grey-700)
+        }
+
+        .act {
+            margin-left: auto;
+            display: flex;
+            gap: 8px
+        }
+
+        .ic,
+        .sub {
+            min-width: 44px;
+            min-height: 44px;
+            border: 1px solid var(--grey-300);
+            background: #fff
+        }
+
+        .sub {
+            background: var(--red);
+            border-color: var(--red);
+            color: #fff;
+            font: 700 11px 'Space Mono';
+            padding: 0 14px;
+            text-transform: uppercase
+        }
+
+        .hl {
+            background: var(--yellow);
+            border: 2px solid #000;
+            border-left: 0;
+            border-right: 0
+        }
+
+        .hl .in {
+            display: flex;
+            gap: 8px;
+            overflow: auto;
+            scrollbar-width: none;
+            min-height: 44px;
+            align-items: center
+        }
+
+        .hl .in::-webkit-scrollbar {
+            display: none
+        }
+
+        .hl .p {
+            background: #000;
+            color: #fff;
+            padding: 6px 10px;
+            font: 700 10px 'Space Mono';
+            text-transform: uppercase;
+            white-space: nowrap
+        }
+
+        .crumb {
+            border-bottom: 1px solid var(--grey-200);
+            padding: 10px 0
+        }
+
+        .crumb .desk {
+            font: 10px 'Space Mono';
+            color: var(--grey-500)
+        }
+
+        .crumb .mob {
+            display: none;
+            font: 10px 'Space Mono';
+            color: var(--grey-700)
+        }
+
+        .hero {
+            aspect-ratio: 21/9;
+            max-height: 520px;
+            overflow: hidden
+        }
+
+        .cap {
+            font: 10px 'Space Mono';
+            color: var(--grey-500);
+            padding: 8px 0
+        }
+
+        .ctag {
+            display: inline-block;
+            padding: 4px 10px;
+            background: rgba(232, 0, 45, .1);
+            font: 700 10px 'Space Mono';
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .h1 {
+            font: 400 clamp(28px, 4.5vw, 54px) 'DM Serif Display';
+            line-height: 1.06;
+            letter-spacing: -.01em
+        }
+
+        .deck {
+            margin: 14px 0 20px;
+            max-width: 640px;
+            font: italic 20px 'DM Serif Display';
+            line-height: 1.55;
+            color: var(--grey-700)
+        }
+
+        .meta {
+            display: flex;
+            justify-content: space-between;
+            gap: 12px;
+            flex-wrap: wrap;
+            border-top: 2px solid #000;
+            border-bottom: 1px solid var(--grey-200);
+            padding: 14px 0
+        }
+
+        .author {
+            display: flex;
+            gap: 10px;
+            align-items: center
+        }
+
+        .av {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            background: #000;
+            color: #fff;
+            display: grid;
+            place-items: center;
+            font: 16px 'Bebas Neue'
+        }
+
+        .name {
+            font: 600 14px 'DM Sans'
+        }
+
+        .role {
+            font: 10px 'Space Mono';
+            color: var(--grey-500)
+        }
+
+        .m2 {
+            display: flex;
+            gap: 14px;
+            flex-wrap: wrap;
+            font: 10px 'Space Mono';
+            color: var(--grey-500)
+        }
+
+        .share {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+            margin-top: 14px
+        }
+
+        .share button,
+        .share a {
+            border: 1px solid var(--grey-300);
+            padding: 7px 14px;
+            font: 700 10px 'Space Mono';
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            background: #fff
+        }
+
+        .share button:hover,
+        .share a:hover {
+            background: #000;
+            color: #fff;
+            border-color: #000
+        }
+
+        .article {
+            max-width: 720px;
+            margin: auto;
+            padding: 32px 20px 48px
+        }
+
+        .article p {
+            font-size: 17px;
+            line-height: 1.8;
+            color: var(--grey-900);
+            margin-bottom: 26px
+        }
+
+        .article h2 {
+            font: 400 30px 'DM Serif Display';
+            margin: 48px 0 16px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 10px
+        }
+
+        .article h3 {
+            font: 600 21px 'DM Sans';
+            margin: 36px 0 12px
+        }
+
+        .article h4 {
+            font: 700 17px 'DM Sans';
+            margin: 28px 0 8px
+        }
+
+        .article blockquote {
+            border-left: 4px solid var(--red);
+            padding: 4px 0 4px 24px;
+            margin: 32px 0;
+            font: italic 22px 'DM Serif Display';
+            line-height: 1.5;
+            color: var(--grey-700)
+        }
+
+        .article blockquote em {
+            display: block;
+            font: 11px 'Space Mono';
+            color: var(--grey-500);
+            margin-top: 8px
+        }
+
+        .article a {
+            color: var(--red)
+        }
+
+        .article a:hover {
+            text-decoration: underline
+        }
+
+        .article img {
+            width: 100%;
+            border: 1px solid var(--grey-200);
+            margin: 32px 0
+        }
+
+        .article code {
+            font: 14px 'Space Mono';
+            background: var(--grey-100);
+            padding: 2px 6px;
+            border: 1px solid var(--grey-200);
+            color: var(--red)
+        }
+
+        .article hr {
+            border: 0;
+            border-top: 2px solid var(--grey-200);
+            margin: 40px 0
+        }
+
+        .article ul,
+        .article ol {
+            font-size: 16px;
+            line-height: 1.7;
+            padding-left: 20px;
+            margin-bottom: 20px
+        }
+
+        .article li {
+            margin-bottom: 8px
+        }
+
+        .topics {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 8px 0 28px
+        }
+
+        .topics a {
+            border: 1px solid var(--grey-300);
+            padding: 5px 10px;
+            font: 700 10px 'Space Mono';
+            text-transform: uppercase
+        }
+
+        .topics a:hover {
+            background: #000;
+            color: #fff
+        }
+
+        .bio {
+            border: 2px solid #000;
+            padding: 20px;
+            margin: 28px 0;
+            display: flex;
+            gap: 12px
+        }
+
+        .bio .av {
+            width: 48px;
+            height: 48px;
+            font-size: 20px
+        }
+
+        .bio p {
+            font-size: 14px;
+            color: var(--grey-700);
+            line-height: 1.6;
+            margin: 6px 0
+        }
+
+        .bio a {
+            font: 11px 'Space Mono';
+            color: var(--red)
+        }
+
+        .related {
+            border-top: 2px solid #000;
+            padding: 36px 0
+        }
+
+        .lab {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 5px 12px;
+            font: 20px 'Bebas Neue'
+        }
+
+        .rg {
+            margin-top: 14px;
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .card {
+            border: 1px solid var(--grey-200)
+        }
+
+        .card:hover {
+            box-shadow: 4px 4px 0 #000
+        }
+
+        .im {
+            aspect-ratio: 16/9
+        }
+
+        .cb {
+            padding: 12px
+        }
+
+        .tt {
+            font: 400 18px 'DM Serif Display'
+        }
+
+        .more {
+            display: inline-block;
+            margin-top: 14px;
+            border: 1px solid #000;
+            padding: 10px 20px;
+            font: 700 11px 'Space Mono';
+            text-transform: uppercase
+        }
+
+        .more:hover {
+            background: #000;
+            color: #fff
+        }
+
+        .band {
+            background: #000;
+            color: #fff;
+            border: 2px solid #000;
+            border-left: 0;
+            border-right: 0;
+            padding: 24px 0
+        }
+
+        .bg {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 16px
+        }
+
+        .bc {
+            border-right: 1px solid #2a2a2a;
+            padding-right: 16px
+        }
+
+        .bc:last-child {
+            border: 0
+        }
+
+        .footer {
+            background: #000;
+            color: #fff;
+            border-top: 4px solid var(--red)
+        }
+
+        .ft {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 16px;
+            padding: 24px 0;
+            border-bottom: 1px solid #333
+        }
+
+        .fb {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            color: #555;
+            font: 10px 'Space Mono'
+        }
+
+        .bt {
+            position: fixed;
+            right: 24px;
+            bottom: 24px;
+            width: 44px;
+            height: 44px;
+            border: 2px solid #444;
+            background: #000;
+            color: #fff;
+            display: none;
+            z-index: 120
+        }
+
+        .bt.visible {
+            display: block
+        }
+
+        .so,
+        .mm {
+            position: fixed;
+            inset: 0;
+            display: none
+        }
+
+        .so {
+            background: rgba(0, 0, 0, .92);
+            z-index: 200;
+            place-items: center
+        }
+
+        .so.o {
+            display: grid
+        }
+
+        .sx {
+            width: min(900px, 100%);
+            padding: 20px
+        }
+
+        .sx input {
+            width: 100%;
+            font: 32px 'DM Serif Display';
+            background: 0;
+            border: 0;
+            border-bottom: 2px solid var(--red);
+            color: #fff
+        }
+
+        .sx p {
+            font: 11px 'Space Mono';
+            color: #555;
+            margin-top: 8px
+        }
+
+        .mm {
+            z-index: 150;
+            background: #fff;
+            padding: 20px
+        }
+
+        .mm.o {
+            display: block
+        }
+
+        .mm a {
+            display: block;
+            border-bottom: 1px solid var(--grey-200);
+            font: 32px 'Bebas Neue';
+            padding: 10px 0
+        }
+
+        @media(max-width:1024px) {
+
+            .bg,
+            .ft {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .rg {
+                grid-template-columns: 1fr 1fr
+            }
+        }
+
+        @media(max-width:768px) {
+
+            .links,
+            .sub {
+                display: none
+            }
+
+            .rg,
+            .bg,
+            .ft {
+                grid-template-columns: 1fr
+            }
+
+            .fb {
+                flex-direction: column;
+                text-align: center
+            }
+
+            .crumb .desk {
+                display: none
+            }
+
+            .crumb .mob {
+                display: block
+            }
+
+            .hero {
+                aspect-ratio: 16/9
+            }
+
+            .article {
+                padding: 24px 16px 40px
+            }
+
+            .article p {
+                font-size: 16px
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class='progress' id='readingProgress'></div>
+    <div class='ticker'>
+        <div class='live'>LIVE</div>
+        <div class='track'><span>FIFA 2026 draw revealed <b>◆</b></span><span>GTA 6 leak sparks debate
+                <b>◆</b></span><span>Champions League shocks <b>◆</b></span><span>FIFA 2026 draw revealed
+                <b>◆</b></span><span>GTA 6 leak sparks debate <b>◆</b></span><span>Champions League shocks
+                <b>◆</b></span></div>
+    </div>
+    <header class='navw'>
+        <div class='c nav'><a class='logo' href='./' id='homeLink'>HJ <i>.</i> TRENDING</a>
+            <nav class='links'><a href='./'>Home</a><a href='./sports/'>Sports</a><a href='./gaming/'>Gaming</a><a
+                    href='./entertainment/'>Entertainment</a><a href='./trending/'>Trending</a><a href='./fifa/'>FIFA
+                    2026</a></nav>
+            <div class='act'><button class='ic' id='searchBtn'>⌕</button><button class='sub'>Subscribe</button><button
+                    class='ic' id='hamburgerBtn'>☰</button></div>
+        </div>
+    </header>
+    <div class='hl'>
+        <div class='c in'><b style='font:700 10px Space Mono'>HOT RIGHT NOW:</b><a class='p' href='#'>FIFA 2026</a><a
+                class='p' href='#'>Gaming</a><a class='p' href='#'>Entertainment</a></div>
+    </div>
+    <div class='crumb'>
+        <div class='c'>
+            <p class='desk'><a id='crumbHome' href='./'>Home</a> > <a id='crumbCat' href='./sports/'>Sports</a> > <span
+                    id='crumbTitle'>Article Title Here</span></p>
+            <p class='mob'><a id='crumbBack' href='./sports/'>← Back to Sports</a></p>
+        </div>
+    </div>
+    <figure class='hero'><img id='post-image' loading='lazy' width='1600' height='900' alt='Article hero image'
+            src='https://images.unsplash.com/photo-1522778034537-20a2486be803?w=1600&q=80&auto=format&fit=crop'>
+    </figure>
+    <div class='narrow'>
+        <p class='cap' id='imgCap'>Image: Editorial coverage visual</p>
+    </div>
+    <header class='narrow' style='padding-top:28px'><span class='ctag' id='post-category'>SPORTS</span>
+        <h1 class='h1' id='post-title'>Loading article...</h1>
+        <p class='deck' id='post-excerpt'>The opening summary sentence shown below the title.</p>
+        <div class='meta'>
+            <div class='author'><span class='av'>HJ</span>
+                <div>
+                    <p class='name' id='post-author'>Hamza Jadoon</p>
+                    <p class='role'>HJ Trending Staff</p>
+                </div>
+            </div>
+            <div class='m2'><span id='post-date'>Feb 28, 2026</span><span id='post-read'>8 min read</span><span
+                    id='post-views'>12.4K views</span></div>
+        </div>
+        <div class='share'><a id='shareX' href='#' target='_blank' rel='noopener'>X Share</a><a id='shareFb' href='#'
+                target='_blank' rel='noopener'>f Share</a><a id='shareWa' href='#' target='_blank'
+                rel='noopener'>WhatsApp</a><button id='copyLink' type='button'>Copy Link</button></div>
+    </header>
+    <article class='article' id='post-content'>
+        <p>Loading content...</p>
+    </article>
+    <section class='article' style='padding-top:0'>
+        <p style='font:10px Space Mono;color:var(--grey-500);text-transform:uppercase'>Topics:</p>
+        <div class='topics' id='post-tags'><a href='#'>FIFA 2026</a><a href='#'>Sports</a></div>
+        <div style='border-top:1px solid var(--grey-200);padding-top:24px'>
+            <p style='font:10px Space Mono;color:var(--grey-500);text-transform:uppercase;margin-bottom:12px'>Share this
+                story</p>
+            <div class='share'><a id='shareX2' href='#' target='_blank' rel='noopener'>X Share</a><a id='shareFb2'
+                    href='#' target='_blank' rel='noopener'>f Share</a><a id='shareWa2' href='#' target='_blank'
+                    rel='noopener'>WhatsApp</a><button id='copyLink2' type='button'>Copy Link</button></div>
+        </div>
+        <div class='bio'><span class='av'>HJ</span>
+            <div>
+                <p style='font:600 16px DM Sans'>Hamza Jadoon</p>
+                <p style='font:10px Space Mono;color:var(--grey-500)'>Founder, HJ Trending</p>
+                <p>Hamza is a digital publisher focused on high-velocity news formats and reader-first editorial
+                    systems. He builds platforms that turn daily headlines into loyal communities.</p><a
+                    href='https://hamzajadoon.cloud' target='_blank' rel='noopener'>hamzajadoon.cloud</a>
+            </div>
+        </div>
+    </section>
+    <section class='related'>
+        <div class='c'><span class='lab'>Read Next</span>
+            <div class='rg' id='related-grid'>
+                <article class='card'><a class='im' href='#'><img loading='lazy' width='800' height='450'
+                            alt='Related story image'
+                            src='https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80&auto=format&fit=crop'></a>
+                    <div class='cb'>
+                        <p class='tag' style='color:var(--red)'>Trending</p>
+                        <h3 class='tt'><a href='#'>Related story title</a></h3>
+                    </div>
+                </article>
+            </div><a class='more' id='allCat' href='./sports/'>See All Sports Stories →</a>
+        </div>
+    </section>
+    <section class='band'>
+        <div class='c bg'>
+            <article class='bc'>
+                <p class='tag' style='color:var(--blue)'>Sports</p>
+                <h3 class='tt'><a href='#'>The 10 Greatest World Cup Goals of All Time Ranked</a></h3>
+            </article>
+            <article class='bc'>
+                <p class='tag' style='color:#9B59B6'>Gaming</p>
+                <h3 class='tt'><a href='#'>Best Games to Play While Waiting for GTA 6</a></h3>
+            </article>
+            <article class='bc'>
+                <p class='tag' style='color:#E67E22'>Entertainment</p>
+                <h3 class='tt'><a href='#'>Every Movie Coming to Streaming This March</a></h3>
+            </article>
+            <article class='bc'>
+                <p class='tag' style='color:var(--red)'>Trending</p>
+                <h3 class='tt'><a href='#'>The Cultural Moments That Defined February 2026</a></h3>
+            </article>
+        </div>
+    </section>
+    <footer class='footer'>
+        <div class='c ft'>
+            <div>
+                <p class='logo'>HJ <i>.</i> TRENDING</p>
+                <p style='color:#888;font-size:13px'>Daily coverage of sports, gaming, entertainment and what the world
+                    is talking about.</p>
+            </div>
+            <div>
+                <p
+                    style='font:700 10px Space Mono;letter-spacing:.16em;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:8px'>
+                    Categories</p><a href='./fifa/'>FIFA 2026</a><a href='./sports/'>Sports</a>
+            </div>
+            <div>
+                <p
+                    style='font:700 10px Space Mono;letter-spacing:.16em;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:8px'>
+                    Company</p><a href='./about/'>About</a><a href='./contact/'>Contact</a>
+            </div>
+            <div>
+                <p
+                    style='font:700 10px Space Mono;letter-spacing:.16em;border-bottom:1px solid #333;padding-bottom:8px;margin-bottom:8px'>
+                    Legal</p><a href='./privacy-policy/'>Privacy Policy</a><a href='./terms-of-service/'>Terms</a>
+            </div>
+        </div>
+        <div class='c fb'>
+            <p>© 2026 HJ Trending. All rights reserved.</p>
+            <p>Built with ❤ by Hamza Jadoon</p>
+        </div>
+    </footer><button class='bt' id='backTop'>↑</button>
+    <div class='so' id='searchOverlay'>
+        <div class='sx'><input id='searchInput' placeholder='Search stories...'><button id='searchClose' class='ic'
+                style='margin-top:8px'>Close</button>
+            <p>Press ESC to close · Try: FIFA 2026, Gaming, Entertainment</p>
+        </div>
+    </div>
+    <div class='mm' id='mobileMenu'><button id='mobileClose' class='ic'>✕</button><a href='./'>Home</a><a
+            href='./fifa/'>FIFA 2026</a><a href='./sports/'>Sports</a><a href='./gaming/'>Gaming</a><a
+            href='./entertainment/'>Entertainment</a><a href='./trending/'>Trending</a><a href='./about/'
+            style='font-size:20px;color:#888'>About</a><a href='./contact/'
+            style='font-size:20px;color:#888'>Contact</a></div>
+    <script src='https://cdn.jsdelivr.net/npm/marked/marked.min.js' defer></script>
+    <script>const BASE = location.protocol === 'file:' ? '.' : (location.hostname.endsWith('github.io') ? ('/' + (location.pathname.split('/').filter(Boolean)[0] || '')) : ''); const catClr = { sports: 'var(--blue)', gaming: '#9B59B6', entertainment: '#E67E22', trending: 'var(--red)', fifa: 'var(--green)' }; const catRoute = { sports: './sports/', gaming: './gaming/', entertainment: './entertainment/', trending: './trending/', fifa: './fifa/' }; function relDate(d) { return new Date(d).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' }) } function esc(s) { return String(s || '').replace(/[&<>]/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;' }[m])) } async function load() { const p = new URLSearchParams(location.search); const slug = p.get('slug'); const posts = await fetch(BASE + '/data/posts.json', { cache: 'no-store' }).then(r => r.json()).catch(() => []); const post = posts.find(x => x.slug === slug) || posts[0]; if (!post) return; const title = post.title || 'Article'; const ex = post.excerpt || 'Read in-depth coverage on HJ Trending.'; document.title = title + ' | HJ Trending'; document.querySelector("meta[name='description']").content = ex; document.querySelector("meta[property='og:title']").content = title; document.querySelector("meta[property='og:description']").content = ex; document.querySelector("meta[property='og:image']").content = post.thumbnail || ''; document.querySelector("meta[name='twitter:title']").content = title; document.querySelector("meta[name='twitter:description']").content = ex; document.querySelector("meta[name='twitter:image']").content = post.thumbnail || ''; const can = location.origin + location.pathname + '?slug=' + encodeURIComponent(post.slug); document.querySelector("meta[property='og:url']").content = can; document.querySelector("link[rel='canonical']").href = can; document.getElementById('post-title').textContent = title; document.getElementById('post-excerpt').textContent = ex; document.getElementById('post-author').textContent = post.author || 'Hamza Jadoon'; document.getElementById('post-date').textContent = relDate(post.date || '2026-02-28'); document.getElementById('post-category').textContent = (post.category || 'sports').toUpperCase(); document.getElementById('post-category').style.color = catClr[post.category] || 'var(--red)'; document.getElementById('post-category').style.background = 'rgba(232,0,45,.1)'; document.getElementById('post-image').src = post.thumbnail || document.getElementById('post-image').src; document.getElementById('post-image').alt = post.thumbnailAlt || 'Article hero image'; document.getElementById('crumbCat').textContent = (post.category || 'sports').charAt(0).toUpperCase() + (post.category || 'sports').slice(1); document.getElementById('crumbCat').href = catRoute[post.category] || './sports/'; document.getElementById('crumbBack').href = catRoute[post.category] || './sports/'; document.getElementById('crumbBack').textContent = 'Back to ' + ((post.category || 'sports').charAt(0).toUpperCase() + (post.category || 'sports').slice(1)); document.getElementById('crumbTitle').textContent = (title.length > 60 ? title.slice(0, 57) + '...' : title); document.getElementById('allCat').href = catRoute[post.category] || './sports/'; document.getElementById('allCat').textContent = 'See All ' + ((post.category || 'sports').charAt(0).toUpperCase() + (post.category || 'sports').slice(1)) + ' Stories →'; if (post.tags?.length) { document.getElementById('post-tags').innerHTML = post.tags.map(t => `<a href='#'>${esc(t)}</a>`).join('') } let md = ''; try { md = await fetch(((post.file || '').startsWith('/') ? BASE + (post.file || '') : post.file), { cache: 'no-store' }).then(r => r.text()) } catch { md = '## Article\n\nContent unavailable.' } const html = window.marked ? window.marked.parse(md) : ('<p>' + esc(md) + '</p>'); document.getElementById('post-content').innerHTML = html; const words = document.getElementById('post-content').innerText.trim().split(/\s+/).length; document.getElementById('post-read').textContent = Math.max(1, Math.ceil(words / 200)) + ' min read'; const shareUrl = encodeURIComponent(location.href), shareTxt = encodeURIComponent(title);[['shareX', 'https://twitter.com/intent/tweet?text=' + shareTxt + '&url=' + shareUrl], ['shareFb', 'https://www.facebook.com/sharer/sharer.php?u=' + shareUrl], ['shareWa', 'https://wa.me/?text=' + shareTxt + '%20' + shareUrl], ['shareX2', 'https://twitter.com/intent/tweet?text=' + shareTxt + '&url=' + shareUrl], ['shareFb2', 'https://www.facebook.com/sharer/sharer.php?u=' + shareUrl], ['shareWa2', 'https://wa.me/?text=' + shareTxt + '%20' + shareUrl]].forEach(x => document.getElementById(x[0]).href = x[1]); const rel = posts.filter(x => x.category === post.category && x.slug !== post.slug).slice(0, 3); if (rel.length) { document.getElementById('related-grid').innerHTML = rel.map(r => `<article class='card'><a class='im' href='?slug=${encodeURIComponent(r.slug)}'><img loading='lazy' width='800' height='450' alt='${esc(r.thumbnailAlt || r.title)}' src='${esc(r.thumbnail || 'https://images.unsplash.com/photo-1508098682722-e99c43a406b2?w=800&q=80&auto=format&fit=crop')}'></a><div class='cb'><p class='tag' style='color:${catClr[r.category] || 'var(--red)'}'>${esc((r.category || 'news').toUpperCase())}</p><h3 class='tt'><a href='?slug=${encodeURIComponent(r.slug)}'>${esc(r.title)}</a></h3></div></article>`).join('') } const schema = { "@context": "https://schema.org", "@type": "Article", headline: title, description: ex, image: post.thumbnail || '', datePublished: post.date || '2026-02-28', dateModified: post.modified || post.date || '2026-02-28', author: { "@type": "Person", name: 'Hamza Jadoon', url: 'https://hamzajadoon.cloud' }, publisher: { "@type": "Organization", name: 'HJ Trending', logo: { "@type": "ImageObject", url: 'https://hjtrending.site/assets/images/logo/hjtrending-logo.png' } }, mainEntityOfPage: { "@type": "WebPage", "@id": can } }; const br = { "@context": "https://schema.org", "@type": "BreadcrumbList", itemListElement: [{ "@type": "ListItem", position: 1, name: 'Home', item: location.origin + '/' }, { "@type": "ListItem", position: 2, name: (post.category || 'sports'), item: location.origin + (catRoute[post.category] || './sports/') }, { "@type": "ListItem", position: 3, name: title }] };[schema, br].forEach(o => { const s = document.createElement('script'); s.type = 'application/ld+json'; s.textContent = JSON.stringify(o); document.head.appendChild(s) }) } window.addEventListener('scroll', () => { document.getElementById('backTop').classList.toggle('visible', window.scrollY > 400) }); window.addEventListener('scroll', () => { document.querySelector('.navw').style.boxShadow = window.scrollY > 10 ? '0 2px 20px rgba(0,0,0,.08)' : 'none' }); window.addEventListener('scroll', () => { const a = document.querySelector('.article'); if (!a) return; const p = Math.min(100, Math.max(0, ((window.scrollY - a.offsetTop) / a.offsetHeight) * 100)); document.getElementById('readingProgress').style.width = p + '%' }); const s = document.getElementById('searchOverlay'), m = document.getElementById('mobileMenu'); document.getElementById('searchBtn').onclick = () => s.classList.add('o'); document.getElementById('searchClose').onclick = () => s.classList.remove('o'); document.getElementById('hamburgerBtn').onclick = () => m.classList.add('o'); document.getElementById('mobileClose').onclick = () => m.classList.remove('o'); document.addEventListener('keydown', e => { if (e.key === 'Escape') { s.classList.remove('o'); m.classList.remove('o') } }); s.onclick = e => { if (e.target === s) s.classList.remove('o') }; document.getElementById('backTop').onclick = () => window.scrollTo({ top: 0, behavior: 'smooth' });['copyLink', 'copyLink2'].forEach(id => document.getElementById(id).onclick = async (e) => { await navigator.clipboard.writeText(location.href); const t = e.target.textContent; e.target.textContent = '✓ Copied!'; setTimeout(() => e.target.textContent = t, 2000) }); load();</script>
+</body>
+
+</html>
